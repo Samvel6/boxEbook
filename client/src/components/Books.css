@@ -1,0 +1,9 @@
+* {
+  box-sizing: border-box;
+}
+
+.books-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
