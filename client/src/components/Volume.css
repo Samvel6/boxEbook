@@ -1,0 +1,68 @@
+:root {
+  --perspective: 1000px;
+  --link-color: #010790;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.volume-container {
+  font-family: "Pontano Sans", sans-serif;
+  font-size: calc(0.65em + .05vw);
+  display: block;
+  position: relative;
+  width: 320px;
+  height: 453px;
+  margin: 0 auto;
+  margin-top: 5rem;
+}
+
+.volume-h3 {
+  font-family: "Stint Ultra Expanded", cursive;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.volume-img {
+  position: absolute;
+  width: 100%;
+  z-index: 100;
+  transition: transform .5s;
+  transform: translateX(0);
+  transform-origin: left center;
+  backface-visibility: hidden;
+}
+
+.volume-text {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: inherit;
+  height: inherit;
+  border: solid 1px grey;
+  background: white;
+  transition: all 1s;
+  padding: 10% 10%;
+  padding-top: 5%;
+  z-index: 1;
+}
+
+.volume-text h3 {
+  font-family: "Pontano Sans", sans-serif;
+  font-size: calc(0.75em + .1vw);
+  text-align: center;
+  line-height: 1.25em;
+}
+
+.volume-container:hover {
+  cursor: pointer;
+}
+
+.volume-container:hover .volume-img {
+  transform: perspective(var(--perspective)) rotateY(-80deg);
+}
+
+.volume-container:hover .volume-text {
+  transform: translateX(20%);
+}
