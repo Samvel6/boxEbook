@@ -1,5 +1,6 @@
-import Volume from "./components/Volume";
 import "./App.css";
+import { Outlet } from "react-router-dom";
+import Volume from "./components/Volume";
 import { useEffect, useState } from "react";
 import { getAllBooks } from "./components/data/getAllBooks";
 
@@ -24,6 +25,7 @@ export default function App() {
   }, []);
   return (
     <>
+      <Outlet />
       {books.map((book) => (
         <Volume
           key={book.title}
