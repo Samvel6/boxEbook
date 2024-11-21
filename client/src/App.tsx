@@ -1,20 +1,37 @@
-import Book from "./pages/Book";
+import Volume from "./components/Volume";
 import "./App.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getAllBooks } from "./components/data/getAllBooks";
 
+interface BookData {
+  has_fulltext?: string;
+  cover_edition_key: string;
+  title: string;
+  name: string;
+}
+
 export default function App() {
+  const [books, setBooks] = useState([] as BookData[]);
+
   useEffect(() => {
     const getData = async () => {
-      const books = await getAllBooks();
-      console.info(books);
+      const data = await getAllBooks();
+
+      setBooks(data);
     };
 
     getData();
   }, []);
   return (
     <>
-      <Book />
+      {books.map((book) => (
+        <Volume
+          key={book.title}
+          title={book.title}
+          cover_edition_key={book.cover_edition_key}
+          name={book.name}
+        />
+      ))}
     </>
   );
 }
