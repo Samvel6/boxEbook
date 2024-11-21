@@ -19,15 +19,15 @@ function Home() {
               <h3>{books[2].title}</h3>
             </Link>
 
-            <Link to={`/books/${books[3].id}`} className="livre-1">
+            <Link to={`/books/${books[3].id}`} className="livre-2">
               <h3>{books[3].title}</h3>
             </Link>
 
-            <Link to={`/books/${books[5].id}`} className="livre-1">
+            <Link to={`/books/${books[5].id}`} className="livre-3">
               <h3>{books[5].title}</h3>
             </Link>
 
-            <Link to={`/books/${books[4].id}`} className="livre-1">
+            <Link to={`/books/${books[4].id}`} className="livre-4">
               <h3>{books[4].title}</h3>
             </Link>
           </div>
@@ -36,15 +36,15 @@ function Home() {
               <h3>{books[2].title}</h3>
             </Link>
 
-            <Link to={`/books/${books[3].id}`} className="livre-1">
+            <Link to={`/books/${books[3].id}`} className="livre-2">
               <h3>{books[3].title}</h3>
             </Link>
 
-            <Link to={`/books/${books[5].id}`} className="livre-1">
+            <Link to={`/books/${books[5].id}`} className="livre-3">
               <h3>{books[5].title}</h3>
             </Link>
 
-            <Link to={`/books/${books[4].id}`} className="livre-1">
+            <Link to={`/books/${books[4].id}`} className="livre-4">
               <h3>{books[4].title}</h3>
             </Link>
           </div>
@@ -56,15 +56,15 @@ function Home() {
               <h3>{books[2].title}</h3>
             </Link>
 
-            <Link to={`/books/${books[3].id}`} className="livre-1">
+            <Link to={`/books/${books[3].id}`} className="livre-2">
               <h3>{books[3].title}</h3>
             </Link>
 
-            <Link to={`/books/${books[5].id}`} className="livre-1">
+            <Link to={`/books/${books[5].id}`} className="livre-3">
               <h3>{books[5].title}</h3>
             </Link>
 
-            <Link to={`/books/${books[4].id}`} className="livre-1">
+            <Link to={`/books/${books[4].id}`} className="livre-4">
               <h3>{books[4].title}</h3>
             </Link>
           </div>
@@ -73,15 +73,15 @@ function Home() {
               <h3>{books[2].title}</h3>
             </Link>
 
-            <Link to={`/books/${books[3].id}`} className="livre-1">
+            <Link to={`/books/${books[3].id}`} className="livre-2">
               <h3>{books[3].title}</h3>
             </Link>
 
-            <Link to={`/books/${books[5].id}`} className="livre-1">
+            <Link to={`/books/${books[5].id}`} className="livre-3">
               <h3>{books[5].title}</h3>
             </Link>
 
-            <Link to={`/books/${books[4].id}`} className="livre-1">
+            <Link to={`/books/${books[4].id}`} className="livre-4">
               <h3>{books[4].title}</h3>
             </Link>
           </div>
