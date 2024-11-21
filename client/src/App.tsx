@@ -1,3 +1,5 @@
+import SearchBar from "./components/SearchBar";
+import "./App.css";
 import { useEffect } from "react";
 import { getAllBooks } from "./components/data/getAllBooks";
 
@@ -10,5 +12,9 @@ export default function App() {
 
     getData();
   }, []);
-  return <div>hello</div>;
+  return (
+    <div>
+      <SearchBar />
+    </div>
+  );
 }
