@@ -77,6 +77,9 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+.home a {
+  text-decoration: none;
+}
 
 .livre-1 {
   background-color: var(--livre-couleur);

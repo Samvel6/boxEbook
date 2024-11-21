@@ -7,7 +7,9 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 // Import the main app component
 import App from "./App";
+import Volume from "./components/Volume";
 import { getAllBooks } from "./components/data/getAllBooks";
+import { getBookById } from "./components/data/getBookById";
 import Home from "./pages/homePage/HomePage";
 
 // Import additional components for new routes
@@ -29,6 +31,11 @@ const router = createBrowserRouter([
         index: true,
         element: <Home />,
         loader: getAllBooks,
+      },
+      {
+        path: "/books/:id",
+        element: <Volume />,
+        loader: getBookById,
       },
     ], // Renders the App component for the home page
   },

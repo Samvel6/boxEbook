@@ -1,3 +1,4 @@
+import { useLoaderData } from "react-router-dom";
 import "./Volume.css";
 
 interface VolumeProps {
@@ -7,16 +8,18 @@ interface VolumeProps {
   title: string;
 }
 
-function Volume({ title, cover, author, has_fulltext }: VolumeProps) {
+function Volume() {
+  const data = useLoaderData() as VolumeProps;
+  console.info(data);
   return (
     <>
       <div className="volume-container">
-        <img className="volume-img" src={cover} alt="volume-cover" />
+        <img className="volume-img" src={data.cover} alt="volume-cover" />
         <div className="volume-text">
-          <h2 className="volume-h3">{title}</h2>
+          <h2 className="volume-h3">{data.title}</h2>
           <hr />
-          <p>{has_fulltext}</p>
-          <h2 className="volume-h5">{author}</h2>
+          <p>{data.has_fulltext}</p>
+          <h2 className="volume-h5">{data.author}</h2>
         </div>
       </div>
     </>
