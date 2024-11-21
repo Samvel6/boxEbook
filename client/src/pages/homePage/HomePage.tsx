@@ -17,7 +17,7 @@ function Home() {
         <div className="boite-a-livre-haut">
           <div className="boite-a-livre-gauche">
             <button type="button" className="livre-1">
-              <h3>{books[2].title}</h3>
+              <h3>{books[1].title}</h3>
             </button>
 
             <button type="button" className="livre-2">
