@@ -144,15 +144,29 @@
 }
 
 @media screen and (max-width: 800px) {
+  .home h3 {
+    color: aliceblue;
+    rotate: 90deg;
+    font-size: .75rem;
+  }
+
   .boite-a-livre-haut {
-    height: 20vh;
+    height: 30vh;
+    border-width: 1rem;
   }
   .boite-a-livre-bas {
-    height: 20vh;
+    height: 30vh;
+    border-width: 1rem;
   }
 
   .boite-a-livre-droite {
     padding: 10px;
+    border-width: .5rem;
+  }
+
+  .boite-a-livre-gauche {
+    padding: 10px;
+    border-width: .5rem;
   }
 
   .livres {
@@ -162,28 +176,28 @@
 
   .livre-1 {
     background-color: var(--livre-couleur);
-    width: 15%;
+    width: 20%;
     height: 80%;
     border-radius: 5px;
   }
 
   .livre-2 {
-    background-color: var(--livre-couleur);
-    width: 15%;
+    background-color: rgb(85, 15, 150);
+    width: 20%;
     height: 85%;
     border-radius: 5px;
   }
 
   .livre-3 {
-    background-color: var(--livre-couleur);
-    width: 15%;
+    background-color: rgb(116, 10, 10);
+    width: 20%;
     height: 75%;
     border-radius: 5px;
   }
 
   .livre-4 {
-    background-color: var(--livre-couleur);
-    width: 15%;
+    background-color: rgb(2, 85, 6);
+    width: 20%;
     height: 80%;
     border-radius: 5px;
   }
