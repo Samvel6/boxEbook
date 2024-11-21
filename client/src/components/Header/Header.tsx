@@ -5,8 +5,8 @@ export default function Header() {
   return (
     <div className="header">
       <Link to="/">accueil</Link>
-      <Link to="/">donnation</Link>
       <h1>nomdusite</h1>
+      <Link to="/">donnation</Link>
     </div>
   );
 }
