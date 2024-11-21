@@ -1,6 +1,5 @@
 import Volume from "../components/Volume";
 import "../components/Books.css";
-import { getAllBooks } from "../components/data/getAllBooks";
 
 interface Book {
   has_fulltext?: string;
@@ -9,11 +8,11 @@ interface Book {
   name: string;
 }
 
-function Book({ title, cover_edition_key, name }) {
+function Book() {
   return (
     <>
       <div className="books-container">
-        <Volume title={""} cover_edition_key={""} name={""} has_fulltext={""} />
+        <Volume title={""} cover={""} author={""} has_fulltext={""} />
         <h2>Book Title</h2>
       </div>
     </>

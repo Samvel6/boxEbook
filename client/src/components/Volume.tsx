@@ -2,25 +2,21 @@ import "./Volume.css";
 
 interface VolumeProps {
   has_fulltext?: string;
-  cover_edition_key: string;
-  name: string;
+  cover: string;
+  author: string;
   title: string;
 }
 
-function Volume({ title, cover_edition_key, name, has_fulltext }: VolumeProps) {
+function Volume({ title, cover, author, has_fulltext }: VolumeProps) {
   return (
     <>
       <div className="volume-container">
-        <img
-          className="volume-img"
-          src={cover_edition_key}
-          alt="volume-cover"
-        />
+        <img className="volume-img" src={cover} alt="volume-cover" />
         <div className="volume-text">
-          <h3 className="volume-h3">{title}</h3>
+          <h2 className="volume-h3">{title}</h2>
           <hr />
-          <h5 className="volume-h5">{name}</h5>
           <p>{has_fulltext}</p>
+          <h2 className="volume-h5">{author}</h2>
         </div>
       </div>
     </>

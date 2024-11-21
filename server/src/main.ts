@@ -11,8 +11,22 @@ import app from "./app";
 
 app.get("/books", (req, res) => {
   res.json([
-    { title: "Harry Potter 1" },
-    { title: "Les Hauts de Hurle-Vent" },
+    {
+      title: "Harry Potter 1",
+      author: "Joanne Kathleen Rowling",
+      cover:
+        "https://cdn1.booknode.com/book_cover/835/full/harry-potter-tome-1-harry-potter-a-lecole-des-sorciers-835229.jpg",
+      has_fulltext:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ultrices porttitor felis vel viverra. Phasellus lobortis pulvinar enim, in porta eros vulputate feugiat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce rutrum ante ligula, sed pulvinar nulla varius eget. Aenean at urna nec erat lobortis tristique sed et dui. Sed at risus vitae felis egestas viverra. In at lobortis lectus. Donec id rutrum libero, vel ullamcorper dui. Cras quis ipsum aliquam, eleifend dui ut, tempor nunc. Suspendisse tristique molestie tincidunt. Maecenas purus eros, scelerisque sit amet tellus aliquam, tincidunt vestibulum augue. Nunc rutrum velit sed magna bibendum, hendrerit sodales est aliquet. Curabitur id augue vel diam molestie accumsan non eu tellus. Aliquam pellentesque aliquam quam, ac vehicula justo consequat at. Mauris sodales viverra urna, ac feugiat sapien fringilla vitae.",
+    },
+    {
+      title: "Les Hauts de Hurle-Vent",
+      author: "Emily Brontë",
+      cover:
+        "https://cdn1.booknode.com/book_cover/1048/full/les-hauts-de-hurle-vent-1048216.jpg",
+      has_fulltext:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ultrices porttitor felis vel viverra. Phasellus lobortis pulvinar enim, in porta eros vulputate feugiat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce rutrum ante ligula, sed pulvinar nulla varius eget. Aenean at urna nec erat lobortis tristique sed et dui. Sed at risus vitae felis egestas viverra. In at lobortis lectus. Donec id rutrum libero, vel ullamcorper dui. Cras quis ipsum aliquam, eleifend dui ut, tempor nunc. Suspendisse tristique molestie tincidunt. Maecenas purus eros, scelerisque sit amet tellus aliquam, tincidunt vestibulum augue. Nunc rutrum velit sed magna bibendum, hendrerit sodales est aliquet. Curabitur id augue vel diam molestie accumsan non eu tellus. Aliquam pellentesque aliquam quam, ac vehicula justo consequat at. Mauris sodales viverra urna, ac feugiat sapien fringilla vitae.",
+    },
     { title: "1984" },
     { title: "L'Étranger" },
     { title: "L'Odyssée" },
@@ -31,21 +45,12 @@ app.get("/books", (req, res) => {
 });
 
 app.get("/authors", (req, res) => {
-  res.json([
-    { author: "Emily Brontë" },
-    { author: "Joanne Kathleen Rowling" },
-    { author: "Emily Brontë" },
-    { author: "George Orwell" },
-    { author: "Emily Brontë" },
-  ]);
+  res.json([{}, {}, { author: "George Orwell" }, { author: "Emily Brontë" }]);
 });
 
 app.get("/books", (req, res) => {
   res.json([
-    {
-      cover:
-        "https://cdn1.booknode.com/book_cover/835/full/harry-potter-tome-1-harry-potter-a-lecole-des-sorciers-835229.jpg",
-    },
+    {},
     {
       cover:
         "https://cdn1.booknode.com/book_cover/862/full/orgueil-et-prejuges-861757.jpg",
@@ -54,10 +59,7 @@ app.get("/books", (req, res) => {
       cover:
         "https://cdn1.booknode.com/book_cover/5223/chicago_sin_tome_1_nid_de_peche-5223314-132-216.jpg",
     },
-    {
-      cover:
-        "https://cdn1.booknode.com/book_cover/1048/full/les-hauts-de-hurle-vent-1048216.jpg",
-    },
+    {},
     { cover: "https://cdn1.booknode.com/book_cover/72/full/1984-72084.jpg" },
     {
       cover:

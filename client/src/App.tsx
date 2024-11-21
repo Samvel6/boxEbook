@@ -4,10 +4,10 @@ import { useEffect, useState } from "react";
 import { getAllBooks } from "./components/data/getAllBooks";
 
 interface BookData {
-  has_fulltext?: string;
-  cover_edition_key: string;
+  has_fulltext: string;
+  cover: string;
   title: string;
-  name: string;
+  author: string;
 }
 
 export default function App() {
@@ -28,8 +28,9 @@ export default function App() {
         <Volume
           key={book.title}
           title={book.title}
-          cover_edition_key={book.cover_edition_key}
-          name={book.name}
+          cover={book.cover}
+          author={book.author}
+          has_fulltext={book.has_fulltext}
         />
       ))}
     </>
