@@ -1,12 +1,20 @@
 import Book from "./pages/Book";
 import "./App.css";
+import { useEffect } from "react";
+import { getAllBooks } from "./components/data/getAllBooks";
 
-function App() {
+export default function App() {
+  useEffect(() => {
+    const getData = async () => {
+      const books = await getAllBooks();
+      console.info(books);
+    };
+
+    getData();
+  }, []);
   return (
     <>
       <Book />
     </>
   );
 }
-
-export default App;
