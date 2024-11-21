@@ -1,5 +1,5 @@
 import "./HomePage.css";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 interface Book {
   id: number;
@@ -8,7 +8,6 @@ interface Book {
 
 function Home() {
   const books = useLoaderData() as Book[];
-  console.info(books);
 
   return (
     <div className="home">
@@ -16,21 +15,21 @@ function Home() {
       <div className="boite-a-livre">
         <div className="boite-a-livre-haut">
           <div className="boite-a-livre-gauche">
-            <button type="button" className="livre-1">
+            <Link to={`/books/${books[2].id}`} className="livre-1">
               <h3>{books[2].title}</h3>
-            </button>
+            </Link>
 
-            <button type="button" className="livre-2">
+            <Link to={`/books/${books[3].id}`} className="livre-1">
               <h3>{books[3].title}</h3>
-            </button>
+            </Link>
 
-            <button type="button" className="livre-3">
+            <Link to={`/books/${books[5].id}`} className="livre-1">
               <h3>{books[5].title}</h3>
-            </button>
+            </Link>
 
-            <button type="button" className="livre-4">
+            <Link to={`/books/${books[4].id}`} className="livre-1">
               <h3>{books[4].title}</h3>
-            </button>
+            </Link>
           </div>
           <div className="boite-a-livre-droite">
             <button type="button" className="livre-1">
