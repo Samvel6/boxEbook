@@ -23,6 +23,7 @@ function Volume({
         />
         <div className="volume-text">
           <h3 className="volume-h3">{title}</h3>
+          <hr />
           <h5 className="volume-h5">{author_name}</h5>
           <p>{has_fulltext}</p>
         </div>

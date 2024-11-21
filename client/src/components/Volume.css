@@ -62,3 +62,7 @@
 .volume-container:hover .volume-img {
   transform: perspective(var(--perspective)) rotateY(-80deg);
 }
+
+.volume-container:hover .volume-text {
+  transform: translateX(20%);
+}

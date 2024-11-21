@@ -1,4 +1,5 @@
 import Volume from "../components/Volume";
+import "../components/Books.css";
 
 // interface Books {
 //   has_fulltext?: string;
@@ -33,6 +34,7 @@ function Book() {
           author_name={""}
           has_fulltext={""}
         />
+        <h2>Book Title</h2>
       </div>
     </>
   );
