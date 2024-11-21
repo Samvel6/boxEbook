@@ -1,23 +1,13 @@
 import "./HomePage.css";
-import { useEffect, useState } from "react";
+import { useLoaderData } from "react-router-dom";
 
 interface Book {
   id: number;
+  title: string;
 }
 
 function Home() {
-  const [books, setBooks] = useState<Book[]>([]);
-
-  useEffect(() => {
-    const bookfetch = () => {
-      fetch("https://random-data-api.com/api/coffee/random_coffee")
-        .then((response) => response.json())
-        .then((data: Book[]) => setBooks(data));
-    };
-
-    bookfetch();
-  }, []);
-
+  const books = useLoaderData() as Book[];
   console.info(books);
 
   return (
@@ -26,20 +16,76 @@ function Home() {
       <div className="boite-a-livre">
         <div className="boite-a-livre-haut">
           <div className="boite-a-livre-gauche">
-            <button type="button" className="livre-1" />
+            <button type="button" className="livre-1">
+              <h3>{books[2].title}</h3>
+            </button>
 
-            <button type="button" className="livre-2" />
+            <button type="button" className="livre-2">
+              <h3>{books[3].title}</h3>
+            </button>
 
-            <button type="button" className="livre-3" />
+            <button type="button" className="livre-3">
+              <h3>{books[5].title}</h3>
+            </button>
 
-            <button type="button" className="livre-4" />
+            <button type="button" className="livre-4">
+              <h3>{books[4].title}</h3>
+            </button>
           </div>
-          <div className="boite-a-livre-droite"> </div>
+          <div className="boite-a-livre-droite">
+            <button type="button" className="livre-1">
+              <h3>{books[2].title}</h3>
+            </button>
+
+            <button type="button" className="livre-2">
+              <h3>{books[3].title}</h3>
+            </button>
+
+            <button type="button" className="livre-3">
+              <h3>{books[5].title}</h3>
+            </button>
+
+            <button type="button" className="livre-4">
+              <h3>{books[4].title}</h3>
+            </button>
+          </div>
         </div>
 
         <div className="boite-a-livre-bas">
-          <div className="boite-a-livre-gauche"> </div>
-          <div className="boite-a-livre-droite"> </div>
+          <div className="boite-a-livre-gauche">
+            <button type="button" className="livre-1">
+              <h3>{books[2].title}</h3>
+            </button>
+
+            <button type="button" className="livre-2">
+              <h3>{books[3].title}</h3>
+            </button>
+
+            <button type="button" className="livre-3">
+              <h3>{books[5].title}</h3>
+            </button>
+
+            <button type="button" className="livre-4">
+              <h3>{books[4].title}</h3>
+            </button>
+          </div>
+          <div className="boite-a-livre-droite">
+            <button type="button" className="livre-1">
+              <h3>{books[2].title}</h3>
+            </button>
+
+            <button type="button" className="livre-2">
+              <h3>{books[3].title}</h3>
+            </button>
+
+            <button type="button" className="livre-3">
+              <h3>{books[5].title}</h3>
+            </button>
+
+            <button type="button" className="livre-4">
+              <h3>{books[4].title}</h3>
+            </button>
+          </div>
         </div>
       </div>
     </div>
