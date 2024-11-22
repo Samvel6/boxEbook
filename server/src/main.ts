@@ -113,7 +113,7 @@ const books = [
       "https://cdn1.booknode.com/book_cover/5081/full/les-mille-et-une-nuits-5080925.jpg",
     has_fulltext:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ultrices porttitor felis vel viverra. Phasellus lobortis pulvinar enim, in porta eros vulputate feugiat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce rutrum ante ligula, sed pulvinar nulla varius eget. Aenean at urna nec erat lobortis tristique sed et dui. Sed at risus vitae felis egestas viverra. In at lobortis lectus. Donec id rutrum libero, vel ullamcorper dui. Cras quis ipsum aliquam, eleifend dui ut, tempor nunc. Suspendisse tristique molestie tincidunt. Maecenas purus eros, scelerisque sit amet tellus aliquam, tincidunt vestibulum augue. Nunc rutrum velit sed magna bibendum, hendrerit sodales est aliquet. Curabitur id augue vel diam molestie accumsan non eu tellus. Aliquam pellentesque aliquam quam, ac vehicula justo consequat at. Mauris sodales viverra urna, ac feugiat sapien fringilla vitae.",
-    Author: "Andrew Lang",
+    author: "Andrew Lang",
   },
 
   {
@@ -155,12 +155,21 @@ const books = [
 ];
 
 app.get("/books", (req, res) => {
-  res.json(books);
+  const title = req.query.title as string | undefined;
+  if (title) {
+    const filteredBooks = books.filter((book) =>
+      book.title.toLowerCase().includes(title.toLowerCase()),
+    );
+    res.json(filteredBooks);
+  } else {
+    res.json(books);
+  }
 });
 
 app.get("/books/:id", (req, res) => {
   const id = Number(req.params.id);
   const book = books.find((book) => book.id === id);
+
   res.json(book);
 });
 
