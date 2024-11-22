@@ -11,6 +11,7 @@ import Volume from "./components/Volume";
 import { getAllBooks } from "./components/data/getAllBooks";
 import { getBookById } from "./components/data/getBookById";
 import Home from "./pages/homePage/HomePage";
+import Donatepage from "./pages/Donatepage";
 
 // Import additional components for new routes
 // Try creating these components in the "pages" folder
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
         path: "/books/:id",
         element: <Volume />,
         loader: getBookById,
+      },
+      {
+        path: "donnation",
+        element: <Donatepage />,
       },
     ], // Renders the App component for the home page
   },
