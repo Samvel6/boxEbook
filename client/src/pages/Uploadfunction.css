@@ -1,0 +1,17 @@
+.button-upload {
+  padding: "10px 20px";
+  background-color: gray;
+  color: "#fff";
+  border: "none";
+  border-radius: "5px";
+  cursor: "pointer",;
+}
+.btn-importer {
+  border-radius: 10px;
+  color: rgb(238, 237, 239);
+  background-color: rgb(0, 0, 5);
+  cursor: pointer;
+}
+.btn-choisir {
+  cursor: pointer;
+}
