@@ -3,7 +3,7 @@ import "./App.css";
 import { useEffect } from "react";
 import { getAllBooks } from "./components/data/getAllBooks";
 
-export default function App() {
+function App() {
   useEffect(() => {
     const getData = async () => {
       const books = await getAllBooks();
@@ -18,3 +18,4 @@ export default function App() {
     </div>
   );
 }
+export default App;

@@ -11,13 +11,3 @@
   border-radius: 4px;
   border: none;
 }
-.search-button {
-  margin-left: 10px;
-  padding: 10px 15px;
-  border: none;
-  background-color: #1b5899;
-  color: white;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
