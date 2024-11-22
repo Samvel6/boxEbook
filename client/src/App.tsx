@@ -1,21 +1,16 @@
-import SearchBar from "./components/SearchBar";
 import "./App.css";
-import { useEffect } from "react";
-import { getAllBooks } from "./components/data/getAllBooks";
+import { Outlet } from "react-router-dom";
+import Header from "./components/Header/Header";
+import SearchBar from "./components/SearchBar";
 
 function App() {
-  useEffect(() => {
-    const getData = async () => {
-      const books = await getAllBooks();
-      console.info(books);
-    };
-
-    getData();
-  }, []);
   return (
-    <div>
+    <>
+      <Header />
       <SearchBar />
-    </div>
+      <Outlet />
+    </>
   );
 }
+
 export default App;
