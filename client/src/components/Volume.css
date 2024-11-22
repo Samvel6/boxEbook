@@ -3,8 +3,16 @@
   --link-color: #010790;
 }
 
-* {
-  box-sizing: border-box;
+.volume {
+  background-image: url("https://i.pinimg.com/736x/30/8f/2f/308f2fd627c36e007527bc50337f6c7b.jpg");
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding-top: 5rem;
 }
 
 .volume-container {
@@ -15,7 +23,6 @@
   width: 320px;
   height: 453px;
   margin: 0 auto;
-  margin-top: 5rem;
 }
 
 .volume-h3 {
@@ -32,6 +39,7 @@
   transform: translateX(0);
   transform-origin: left center;
   backface-visibility: hidden;
+  box-shadow: 0px 0px 35px rgba(128, 128, 128, 0.607);
 }
 
 .volume-text {
@@ -44,16 +52,19 @@
   background: white;
   transition: all 1s;
   padding: 10% 10%;
-  padding-top: 5%;
   z-index: 1;
   text-align: center;
+  border: solid 2px;
+  box-shadow: 0px 0px 35px rgba(128, 128, 128, 0.607);
 }
 
-.volume-text h3 {
+.volume-text p {
+  margin-top: 1.5rem;
+}
+
+.volume-text h2 {
   font-family: "Pontano Sans", sans-serif;
-  font-size: calc(0.75em + .1vw);
-  text-align: center;
-  line-height: 1.25em;
+  margin-top: 1.5rem;
 }
 
 .volume-container:hover {
