@@ -1,6 +1,7 @@
-import debounce from "debounce"; // Importation de la fonction debounce
+import debounce from "debounce";
 import { useEffect, useState } from "react";
-
+import { Link } from "react-router-dom";
+import "./SearchBar.css";
 interface Book {
   id: number;
   has_fulltext?: string;
@@ -8,65 +9,65 @@ interface Book {
   title: string;
   name: string;
 }
-
 const SearchBar = () => {
   const [filteredBooks, setFilteredBooks] = useState<Book[]>([]);
   const [searchTitle, setSearchTitle] = useState("");
-
-  // Fonction de récupération des livres
   const fetchBooks = async (title: string) => {
     try {
-      console.info("searchTitle =>", title);
-      const response = await fetch(`/books?title=${title}`);
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/books?title=${title}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        },
+      );
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`Error: ${response.status} - ${errorText}`);
+      }
       const data = await response.json();
       setFilteredBooks(data);
     } catch (error) {
       console.error("Erreur lors du chargement des items:", error);
     }
   };
-
-  // Débounce de la fonction fetchBooks
   const debouncedFetchBooks = debounce((title: string) => {
     fetchBooks(title);
-  }, 500); // Attendre 500ms après la dernière saisie avant d'effectuer la recherche
-
-  // Quand la valeur de searchTitle change, on appelle debouncedFetchBooks
+  }, 500);
   useEffect(() => {
     if (searchTitle) {
       debouncedFetchBooks(searchTitle);
     } else {
-      setFilteredBooks([]); // Réinitialiser les résultats si la recherche est vide
+      setFilteredBooks([]);
     }
   }, [searchTitle, debouncedFetchBooks]);
-
-  // Mise à jour de la valeur de l'input
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTitle(e.target.value);
   };
-
   return (
-    <div>
-      <div className="search-bar-container">
-        🔍
+    <div className="search-bar-container">
+      <div className="input-container">
+        <span>🔍</span>
         <input
           type="text"
-          placeholder="Rechercher par titre / auteur"
+          placeholder="Rechercher par titre"
           className="search-input"
           value={searchTitle}
           onChange={handleChange}
         />
       </div>
       <div>
-        <ul className="results-list">
+        <div className="results-list">
           {filteredBooks.map((book) => (
-            <li key={book.id}>
+            <Link key={book.id} to={`/books/${book.id}`} className="link-book">
               <strong>{book.title}</strong>
-            </li>
+            </Link>
           ))}
-        </ul>
+        </div>
       </div>
     </div>
   );
 };
-
 export default SearchBar;

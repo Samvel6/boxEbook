@@ -154,26 +154,17 @@ const books = [
   },
 ];
 
-// app.get("/books", (req, res) => {
-//   console.info("req", req.query);
-//   const { title } = req.query;
-//   console.info("title", title);
-
-//   if (!title) {
-//     return res
-//       .status(400)
-//       .json({ message: "veuillez founir un titre pour la recherche" });
-//   }
-//   const filteredbooks = books.filter((book) =>
-//     book.title.toLowerCase().includes(title.toLowerCase()),
-//   );
-
-//   if (filteredbooks.length === 0) {
-//     res.sendStatus(404).json({ message: "Aucun livre trouvé avec ce titre" });
-//   }
-
-//   return res.json(filteredbooks);
-// });
+app.get("/books", (req, res) => {
+  const title = req.query.title as string | undefined;
+  if (title) {
+    const filteredBooks = books.filter((book) =>
+      book.title.toLowerCase().includes(title.toLowerCase()),
+    );
+    res.json(filteredBooks);
+  } else {
+    res.json(books);
+  }
+});
 
 app.get("/books/:id", (req, res) => {
   const id = Number(req.params.id);
