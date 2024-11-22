@@ -1,10 +1,14 @@
 :root {
-  --boite-a-livre-couleur: rgb(112, 53, 18);
+  --boite-a-livre-couleur: rgb(89, 40, 12);
   --livre-couleur: rgb(10, 10, 134);
 }
 
 * {
   margin: 0;
+}
+
+.home h2 {
+  padding-bottom: 3rem;
 }
 
 .home {
@@ -19,7 +23,13 @@
 }
 
 .home {
-  background-image: url("https://cdn.pixabay.com/photo/2020/05/25/22/49/space-5220743_1280.png");
+  background-image: url("https://img.freepik.com/photos-premium/flou-printemps-ete-nature-plein-air-fond-flou-fond-parc-verdoyant_7190-2376.jpg");
+  background-position-x: center;
+  background-position-y: center;
+  background-size: cover;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
 }
 
 .boite-a-livre-haut {

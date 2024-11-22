@@ -1,9 +1,10 @@
 .header {
   height: 10vh;
-  background-color: rgb(5, 5, 47);
+  background-color: rgb(2, 2, 93);
   display: flex;
   justify-content: space-around;
   align-items: center;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 .header a {
