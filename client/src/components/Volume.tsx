@@ -12,7 +12,7 @@ function Volume() {
   const data = useLoaderData() as VolumeProps;
   console.info(data);
   return (
-    <>
+    <div className="volume">
       <div className="volume-container">
         <img className="volume-img" src={data.cover} alt="volume-cover" />
         <div className="volume-text">
@@ -22,7 +22,7 @@ function Volume() {
           <h2 className="volume-h5">{data.author}</h2>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

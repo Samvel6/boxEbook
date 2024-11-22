@@ -3,8 +3,16 @@
   --link-color: #010790;
 }
 
-* {
-  box-sizing: border-box;
+.volume {
+  background-image: url("https://i.pinimg.com/736x/30/8f/2f/308f2fd627c36e007527bc50337f6c7b.jpg");
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .volume-container {
@@ -15,7 +23,6 @@
   width: 320px;
   height: 453px;
   margin: 0 auto;
-  margin-top: 5rem;
 }
 
 .volume-h3 {
@@ -47,6 +54,7 @@
   padding-top: 5%;
   z-index: 1;
   text-align: center;
+  border: solid 2px;
 }
 
 .volume-text h3 {
