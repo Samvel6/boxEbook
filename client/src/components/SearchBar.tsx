@@ -1,7 +1,8 @@
 import debounce from "debounce";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { Link } from "react-router-dom";
 import "./SearchBar.css";
+
 interface Book {
   id: number;
   has_fulltext?: string;
@@ -9,9 +10,11 @@ interface Book {
   title: string;
   name: string;
 }
+
 const SearchBar = () => {
   const [filteredBooks, setFilteredBooks] = useState<Book[]>([]);
   const [searchTitle, setSearchTitle] = useState("");
+
   const fetchBooks = async (title: string) => {
     try {
       const response = await fetch(
@@ -27,15 +30,22 @@ const SearchBar = () => {
         const errorText = await response.text();
         throw new Error(`Error: ${response.status} - ${errorText}`);
       }
+
       const data = await response.json();
       setFilteredBooks(data);
     } catch (error) {
       console.error("Erreur lors du chargement des items:", error);
     }
   };
-  const debouncedFetchBooks = debounce((title: string) => {
-    fetchBooks(title);
-  }, 500);
+
+  // Use useCallback to memoize the debounced function
+  const debouncedFetchBooks = useCallback(
+    debounce((title: string) => {
+      fetchBooks(title);
+    }, 500),
+    [], // No dependencies so debounce is created only once
+  );
+
   useEffect(() => {
     if (searchTitle) {
       debouncedFetchBooks(searchTitle);
@@ -43,9 +53,11 @@ const SearchBar = () => {
       setFilteredBooks([]);
     }
   }, [searchTitle, debouncedFetchBooks]);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTitle(e.target.value);
   };
+
   return (
     <div className="search-bar-container">
       <div className="input-container">
@@ -70,4 +82,5 @@ const SearchBar = () => {
     </div>
   );
 };
+
 export default SearchBar;
