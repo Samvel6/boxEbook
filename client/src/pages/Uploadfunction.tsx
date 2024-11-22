@@ -2,20 +2,15 @@ import { useState } from "react";
 import "./Uploadfunction.css";
 
 const Uploadfunction = () => {
-  const [selectedFile, setSelectedFile] = useState(null);
+  const [selectedFile] = useState(null);
 
-  const handleFileChange = (event) => {
-    const file = event.target.files[0];
-    setSelectedFile(file);
-  };
+  const handleFileChange = () => {};
 
   const handleUploadClick = () => {
     if (!selectedFile) {
       alert("No file selected!");
       return;
     }
-
-    alert(`Uploading: ${selectedFile.name}`);
   };
 
   return (
@@ -30,7 +25,7 @@ const Uploadfunction = () => {
       </button>
       {selectedFile && (
         <div style={{}}>
-          <strong>Selected File:</strong> {selectedFile.name}
+          <strong>Selected File:</strong> {selectedFile}
         </div>
       )}
     </div>

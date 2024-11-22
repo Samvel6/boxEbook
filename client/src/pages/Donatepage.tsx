@@ -10,24 +10,11 @@ interface Donatepage {
   link: string;
 }
 const Donatepage = () => {
-  const [books, setBooks] = useState<Donatepage[]>([]);
-  const [bookDetails, setBookDetails] = useState<Donatepage>();
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-        console.info(name)
-        console.info(value)
-
-
-    setBookDetails({ ...bookDetails, [name]: value });
-  };
+  const [books] = useState<Donatepage[]>([]);
+  const [bookDetails] = useState<Donatepage>();
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    // if (bookDetails.title && bookDetails.author) {
-    //   setBooks([books, bookDetails]);
-    //   setBookDetails({ title: "", author: "", description: "" });
-    // }
   };
 
   return (
@@ -76,7 +63,6 @@ const Donatepage = () => {
           name="title"
           placeholder="Nom du ebook"
           value={bookDetails?.title}
-          onChange={handleChange}
           required
         />
         <input
@@ -84,7 +70,6 @@ const Donatepage = () => {
           name="author"
           placeholder="Auteur du ebook"
           value={bookDetails?.author}
-          onChange={handleChange}
           required
         />
         <input
@@ -92,7 +77,6 @@ const Donatepage = () => {
           name="link"
           placeholder="Le lien du ebook"
           value={bookDetails?.link}
-          onChange={handleChange}
           required
         />
 
@@ -100,7 +84,6 @@ const Donatepage = () => {
           name="description"
           placeholder="Résumé du ebook"
           value={bookDetails?.description}
-          onChange={handleChange}
         />
         <Uploadfunction />
         <button className="submit-btn" type="submit">
@@ -111,8 +94,8 @@ const Donatepage = () => {
       <div className="book-list">
         <h2>Ebooks donnés:</h2>
         <ul>
-          {books?.map((book, index) => (
-            <li key={index}>
+          {books?.map((book) => (
+            <li key={book.title}>
               <strong>{book.title}</strong> by {book.author} <br />
               {book.description && <small>{book.description}</small>}
             </li>

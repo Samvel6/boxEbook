@@ -1,12 +1,14 @@
 import "./App.css";
 import Donatepage from "./pages/Donatepage";
+import { Outlet } from "react-router-dom";
+import Header from "./components/Header/Header";
 
-function App() {
+export default function App() {
   return (
-    <div>
+    <>
+      <Header />
       <Donatepage />
-    </div>
+      <Outlet />
+    </>
   );
 }
-
-export default App;
