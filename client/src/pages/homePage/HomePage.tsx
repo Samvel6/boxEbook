@@ -11,7 +11,6 @@ function Home() {
 
   return (
     <div className="home">
-      <h2>boite a livre</h2>
       <div className="boite-a-livre">
         <div className="boite-a-livre-haut">
           <div className="boite-a-livre-gauche">
