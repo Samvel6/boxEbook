@@ -14,7 +14,7 @@ export async function getAllBooks() {
     });
 
     const data = await fetchPromise;
-    return data;
+    return data ? data : [];
   } catch (error) {
     if (error instanceof Error)
       console.error("An error occurred:", error.message);

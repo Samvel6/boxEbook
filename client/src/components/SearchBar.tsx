@@ -1,67 +1,70 @@
+import debounce from "debounce"; // Importation de la fonction debounce
 import { useEffect, useState } from "react";
-interface Item {
+
+interface Book {
   id: number;
+  has_fulltext?: string;
+  cover_edition_key: string;
   title: string;
-  author: string;
+  name: string;
 }
 
 const SearchBar = () => {
-  const [items, setItems] = useState<Item[]>([]);
-  const [filteredItems, setFilteredItems] = useState<Item[]>([]);
-  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [filteredBooks, setFilteredBooks] = useState<Book[]>([]);
+  const [searchTitle, setSearchTitle] = useState("");
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("/api/items");
-        const data = await response.json();
-        setItems(data);
-        setFilteredItems(data);
-      } catch (error) {
-        console.error("Erreur lors du chargement des items:", error);
-      }
-    };
-    fetchData();
-  }, []);
-
-  // Filtrer les items en fonction du searchQuery
-  useEffect(() => {
-    let result = items;
-    if (searchQuery) {
-      const [titleQuery, authorQuery] = searchQuery.split(":");
-
-      if (titleQuery) {
-        result = result.filter((item) =>
-          item.title.toLowerCase().includes(titleQuery.trim().toLowerCase()),
-        );
-      }
-
-      if (authorQuery) {
-        result = result.filter((item) =>
-          item.author.toLowerCase().includes(authorQuery.trim().toLowerCase()),
-        );
-      }
+  // Fonction de récupération des livres
+  const fetchBooks = async (title: string) => {
+    try {
+      console.info("searchTitle =>", title);
+      const response = await fetch(`/books?title=${title}`);
+      const data = await response.json();
+      setFilteredBooks(data);
+    } catch (error) {
+      console.error("Erreur lors du chargement des items:", error);
     }
-    setFilteredItems(result);
-  }, [searchQuery, items]);
+  };
+
+  // Débounce de la fonction fetchBooks
+  const debouncedFetchBooks = debounce((title: string) => {
+    fetchBooks(title);
+  }, 500); // Attendre 500ms après la dernière saisie avant d'effectuer la recherche
+
+  // Quand la valeur de searchTitle change, on appelle debouncedFetchBooks
+  useEffect(() => {
+    if (searchTitle) {
+      debouncedFetchBooks(searchTitle);
+    } else {
+      setFilteredBooks([]); // Réinitialiser les résultats si la recherche est vide
+    }
+  }, [searchTitle, debouncedFetchBooks]);
+
+  // Mise à jour de la valeur de l'input
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTitle(e.target.value);
+  };
 
   return (
-    <div className="search-bar-container">
-      🔍
-      <input
-        type="text"
-        placeholder="Rechercher par titre / auteur"
-        className="search-input"
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
-      />
-      <ul className="results-list">
-        {filteredItems.map((item) => (
-          <li key={item.id}>
-            <strong>{item.title}</strong> par {item.author}
-          </li>
-        ))}
-      </ul>
+    <div>
+      <div className="search-bar-container">
+        🔍
+        <input
+          type="text"
+          placeholder="Rechercher par titre / auteur"
+          className="search-input"
+          value={searchTitle}
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <ul className="results-list">
+          {filteredBooks.map((book) => (
+            <li key={book.id}>
+              <strong>{book.title}</strong>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
